@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 要素を取得
     const totalInput = document.getElementById('total');
+    const excludeInput = document.getElementById('exclude');
 
     // 人数入力フィールド
     const seniorNumberInput = document.getElementById('senior-number');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 計算を行う関数
     function calculateSplit() {
         const total = parseInt(totalInput.value) || 0;
+        const exclude = parseInt(excludeInput.value) || 0;
 
         // 人数を取得
         const seniorCount = parseInt(seniorNumberInput.value) || 0;
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // 傾斜を考慮した一人当たりの基準額を計算
-        const baseAmountPerWeight = total / totalWeightedPeople;
+        const baseAmountPerWeight = (total - exclude) / totalWeightedPeople;
 
         // 各学年の傾斜を適用した一人当たりの金額を計算（100円単位で四捨五入）
         const seniorPerPerson = Math.round((baseAmountPerWeight * (1 + seniorRate / 100)) / 100) * 100;
