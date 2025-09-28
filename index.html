@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="keywords" content="傾斜計算機" />
+        <meta name="description"
+              content="大学のサークルでの大人数の清算に特化した傾斜計算機です。" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <title>傾斜計算機</title>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <script src="src/script.js"></script>
+    </head>
+    <body>
+        <h1>傾斜計算機</h1>
+        <div>
+            <dt>合計金額</dt>
+            <dd><input type="number" id="total" name="total" min="0" max="1000000" step="100" /></dd>
+            <dt>4年</dt>
+            <dd><input type="number" id="senior-number" name="senior-number" min="0" max="1000000" step="1" />
+                <input type="range" id="senior" name="senior" min="0" max="100" />
+                <div id="senior-result"></div>
+            </dd>
+            <dt>3年</dt>
+            <dd><input type="number" id="junior-number" name="junior-number" min="0" max="1000000" step="1" />
+                <input type="range" id="junior" name="junior" min="0" max="100" />
+                <div id="junior-result"></div>
+            </dd>
+            <dt>2年</dt>
+            <dd><input type="number" id="sophomore-number" name="sophomore-number" min="0" max="1000000" step="1" />
+                <input type="range" id="sophomore" name="sophomore" min="0" max="100" />
+                <div id="sophomore-result"></div>
+            </dd>
+            <dt>1年</dt>
+            <dd><input type="number" id="freshman-number" name="freshman-number" min="0" max="1000000" step="1" />
+                <input type="range" id="freshman" name="freshman" min="0" max="100" />
+                <div id="freshman-result"></div>
+            </dd>
+        </div>
+    </body>
+</html>
