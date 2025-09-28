@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const freshmanNumberInput = document.getElementById('freshman-number');
 
     // 傾斜スライダー（割合）
-    const seniorSlider = document.getElementById('senior');
-    const juniorSlider = document.getElementById('junior');
-    const sophomoreSlider = document.getElementById('sophomore');
-    const freshmanSlider = document.getElementById('freshman');
+    const seniorSlider = document.getElementById('senior-range');
+    const juniorSlider = document.getElementById('junior-range');
+    const sophomoreSlider = document.getElementById('sophomore-range');
+    const freshmanSlider = document.getElementById('freshman-range');
 
-    const seniorResult = document.getElementById('senior-result');
-    const juniorResult = document.getElementById('junior-result');
-    const sophomoreResult = document.getElementById('sophomore-result');
-    const freshmanResult = document.getElementById('freshman-result');
+    const senior = document.getElementById('senior');
+    const junior = document.getElementById('junior');
+    const sophomore = document.getElementById('sophomore');
+    const freshman = document.getElementById('freshman');
 
     // 計算を行う関数
     function calculateSplit() {
@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (totalPeople === 0) {
             // 人数が0の場合は結果をクリア
-            seniorResult.textContent = '傾斜: 50%';
-            juniorResult.textContent = '傾斜: 50%';
-            sophomoreResult.textContent = '傾斜: 50%';
-            freshmanResult.textContent = '傾斜: 50%';
+            senior.textContent = '4年';
+            junior.textContent = '3年';
+            sophomore.textContent = '2年';
+            freshman.textContent = '1年';
             return;
         }
 
@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (totalWeightedPeople === 0) {
             // 人数が0の場合は結果をクリア
-            seniorResult.textContent = '傾斜: 50%';
-            juniorResult.textContent = '傾斜: 50%';
-            sophomoreResult.textContent = '傾斜: 50%';
-            freshmanResult.textContent = '傾斜: 50%';
+            senior.textContent = '4年';
+            junior.textContent = '3年';
+            sophomore.textContent = '2年';
+            freshman.textContent = '1年';
             const existingRemainder = document.getElementById('total-remainder');
             if (existingRemainder) {
                 existingRemainder.remove();
@@ -89,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const remainder = actualTotal - total;
 
         // 結果を表示
-        seniorResult.innerHTML = `傾斜: +${seniorRate}%<br>一人当たり: ${seniorPerPerson}円`;
-        juniorResult.innerHTML = `傾斜: +${juniorRate}%<br>一人当たり: ${juniorPerPerson}円`;
-        sophomoreResult.innerHTML = `傾斜: +${sophomoreRate}%<br>一人当たり: ${sophomorePerPerson}円`;
-        freshmanResult.innerHTML = `傾斜: +${freshmanRate}%<br>一人当たり: ${freshmanPerPerson}円`;
+        senior.innerHTML = `4年: ${seniorPerPerson}円/人`;
+        junior.innerHTML = `3年: ${juniorPerPerson}円/人`;
+        sophomore.innerHTML = `2年: ${sophomorePerPerson}円/人`;
+        freshman.innerHTML = `1年: ${freshmanPerPerson}円/人`;
 
         // 余りがある場合の表示（100円単位での切り上げによる差額）
         // 既存の余り表示があれば削除
@@ -100,19 +100,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (existingRemainder) {
             existingRemainder.remove();
         }
-
-        if (remainder !== 0) {
-            const totalResultDiv = document.createElement('div');
-            totalResultDiv.id = 'total-remainder';
-            if (remainder > 0) {
-                totalResultDiv.innerHTML = `<br><strong>実際の支払い総額: ${actualTotal}円</strong><br><strong>差額: +${remainder}円</strong>`;
-            } else {
-                totalResultDiv.innerHTML = `<br><strong>実際の支払い総額: ${actualTotal}円</strong><br><strong>差額: ${remainder}円</strong>`;
-            }
-
-            // body に余り情報を追加
-            document.body.appendChild(totalResultDiv);
+        const totalResultDiv = document.createElement('div');
+        totalResultDiv.id = 'total-remainder';
+        if (remainder > 0) {
+            totalResultDiv.innerHTML = `<br><strong>支払い総額: ${actualTotal}円</strong><br><strong>差額: +${remainder}円</strong>`;
+        } else {
+            totalResultDiv.innerHTML = `<br><strong>実際の支払い総額: ${actualTotal}円</strong><br><strong>差額: ${remainder}円</strong>`;
         }
+
+        // body に余り情報を追加
+        document.body.appendChild(totalResultDiv);
+
     }
 
     // イベントリスナーを追加

@@ -9,35 +9,67 @@
               content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <title>傾斜計算機</title>
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+            rel="stylesheet"
+        />
         <script src="src/script.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+        <style>
+            .main {
+                padding: 20px;
+            }
+        </style>
     </head>
     <body>
-        <h1>傾斜計算機</h1>
-        <div>
-            <dt>合計金額</dt>
-            <dd><input type="number" id="total" name="total" min="0" max="1000000" step="100" /></dd>
-            <dt>4年</dt>
-            <dd><input type="number" id="senior-number" name="senior-number" min="0" max="1000000" step="1" />
-                <input type="range" id="senior" name="senior" min="0" max="100" />
-                <div id="senior-result"></div>
-            </dd>
-            <dt>3年</dt>
-            <dd><input type="number" id="junior-number" name="junior-number" min="0" max="1000000" step="1" />
-                <input type="range" id="junior" name="junior" min="0" max="100" />
-                <div id="junior-result"></div>
-            </dd>
-            <dt>2年</dt>
-            <dd><input type="number" id="sophomore-number" name="sophomore-number" min="0" max="1000000" step="1" />
-                <input type="range" id="sophomore" name="sophomore" min="0" max="100" />
-                <div id="sophomore-result"></div>
-            </dd>
-            <dt>1年</dt>
-            <dd><input type="number" id="freshman-number" name="freshman-number" min="0" max="1000000" step="1" />
-                <input type="range" id="freshman" name="freshman" min="0" max="100" />
-                <div id="freshman-result"></div>
-            </dd>
+        <script src="js/bootstrap.min.js"></script>
+        <div id="wrapper">
+            <div id="page-content-wrapper">
+                <div class="container page-header d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="fs-3">傾斜計算機</h1>
+                </div>
+                <div class="main container">
+                    <div class="mb-3">
+                        <div class="form-floating">
+                            <input class="form-control" type="number" id="total" placeholder="合計金額" name="total" min="0" max="1000000" step="100" />
+                            <label for="total">合計金額</label>
+                        </div>
+                        <hr />
+                        <label class="form-label" for="senior-number" id="senior">4年</label>
+                        <div class="align-items-center d-flex">
+                            <input class="form-control-sm justify-content-start" type="number" placeholder="人数" id="senior-number" name="senior-number" min="0" max="1000000" step="1" />
+                            <input class="form-range" type="range" id="senior-range" name="senior" min="0" max="100" />
+                        </div>
+                        <label class="form-label" for="junior-number" id="junior">3年</label>
+                        <div class="align-items-center d-flex">
+                            <input class="form-control-sm justify-content-start" type="number" placeholder="人数" id="junior-number" name="junior-number" min="0" max="1000000" step="1" />
+                            <input class="form-range" type="range" id="junior-range" name="junior" min="0" max="100" />
+                            <div id="junior-result"></div>
+                        </div><label class="form-label" for="sophomore-number" id="sophomore">2年</label>
+                        <div class="align-items-center d-flex">
+                            <input class="form-control-sm justify-content-start" type="number" placeholder="人数" id="sophomore-number" name="sophomore-number" min="0" max="1000000" step="1" />
+                            <input class="form-range" type="range" id="sophomore-range" name="sophomore" min="0" max="100" />
+                            <div id="sophomore-result"></div>
+                        </div><label class="form-label" for="freshman-number" id="freshman">1年</label>
+                        <div class="align-items-center d-flex">
+                            <input class="form-control-sm justify-content-start" type="number" placeholder="人数" id="freshman-number" name="freshman-number" min="0" max="1000000" step="1" />
+                            <input class="form-range" type="range" id="freshman-range" name="freshman" min="0" max="100" />
+                            <div id="freshman-result"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
